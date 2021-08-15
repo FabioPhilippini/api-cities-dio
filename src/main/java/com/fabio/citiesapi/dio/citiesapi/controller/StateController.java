@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/states")
 public class StateController {
 
-    @Autowired
-    private StateRepository stateRepository;
+    private final StateRepository stateRepository;
+
+    public StateController(StateRepository stateRepository) {
+        this.stateRepository = stateRepository;
+    }
 
     @GetMapping
     private List<State> stateList(){
